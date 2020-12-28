@@ -3,14 +3,14 @@
 HOST=hostname
 PORT=62294
 
-nc -vz $HOST $PORT >/dev/null
+nc -z $HOST $PORT >/dev/null
 value=$?
 
 if [ "$value" = 0 ] && pgrep -x "murmurd" >/dev/null; then
-    murmur-user-wrapper -k && echo "murmur killed"
+    murmur-user-wrapper -k
 fi
 
 if [ "$value" != 0 ]; then
-    murmur-user-wrapper && echo "starting murmur"
+    murmur-user-wrapper
 fi
 

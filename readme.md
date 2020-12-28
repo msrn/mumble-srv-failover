@@ -10,6 +10,6 @@ Sends ping to master server every minute. If exit value of nc is other than 0, t
 1. Run `mumble-failover.sh` as a cronjob
 
 ```
-* * * * * mumble-failover.sh
+* * * * * ~/mumble-failover.sh
 ```
 
