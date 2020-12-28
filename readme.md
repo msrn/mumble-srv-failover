@@ -6,13 +6,19 @@ Sends ping to master server every minute. If exit value of nc is other than 0, t
 ## Setting up DNS records
 
 You need two servers for this
+
 A records
+
 ```
 A master.example.com 192.168.1.10
 A failover.example.com 192.168.1.11
 ```
 SRV records
-(_service._protocol.name TTL priority weight port target) Note failover having lesser priority
+
+`_service._protocol.name TTL priority weight port target`
+
+Note failover having lesser priority
+
 ```
 SRV _mumble._tcp.mumble AUTO 1 5 62294 master.example.com
 SRV _mumble._tcp.mumble AUTO 10 5 62294 failover.example.com
